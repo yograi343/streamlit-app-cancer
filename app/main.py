@@ -184,11 +184,13 @@ def main():
         layout="wide",
         initial_sidebar_state="expanded",
     )
+    with open("..\\assets\\style.css") as f:
+        st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 
     with st.container():
         st.title("Breast Cancer Prediction")
         st.write(
-            "Please connect this app to your cytology lab to help diagnose breast cancer form your tissue sample."
+            "Please connect this app to your cytology lab to help diagnose breast cancer form your tissue sample. This app predicts using a machine learning model whether a breast mass is benign or malignant based on the measurements it receives from your cytosis lab. You can also update the measurements by hand using the sliders in the sidebar. "
         )
 
     input_data = add_sidebar()
