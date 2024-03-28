@@ -8,7 +8,7 @@ import os
 
 
 def get_clean_data():
-    data = pd.read_csv("Data/data.csv")
+    data = pd.read_csv("../Data/data.csv")
 
     data = data.drop(["Unnamed: 32", "id"], axis=1)
 
