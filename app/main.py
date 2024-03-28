@@ -5,9 +5,15 @@ import plotly.graph_objects as go
 import os
 import numpy as np
 
+cwd = os.getcwd()
+parent_dir = os.path.abspath(os.path.join(cwd, os.pardir))
+data_path = os.path.join(parent_dir,'data','data.csv')
+asset_path = os.path.join(parent_dir,'assets','style.css')
+model_path = os.path.join(parent_dir,'model','model.pkl')
+scaler_path = os.path.join(parent_dir,'model','scaler.pkl')
 
 def get_clean_data():
-    data = pd.read_csv("data/data.csv")
+    data = pd.read_csv(data_path)
 
     data = data.drop(["Unnamed: 32", "id"], axis=1)
 
@@ -145,8 +151,8 @@ def get_radar(input_data):
 
 
 def add_predictions(input_data):
-    model = pickle.load(open("../model/model.pkl", "rb"))
-    scaler = pickle.load(open("../model/scaler.pkl", "rb"))
+    model = pickle.load(open(model_path, "rb"))
+    scaler = pickle.load(open(scaler_path, "rb"))
 
     input_array = np.array(list(input_data.values())).reshape(1, -1)
 
@@ -184,7 +190,7 @@ def main():
         layout="wide",
         initial_sidebar_state="expanded",
     )
-    with open("../assets/style.css") as f:
+    with open(asset_path) as f:
         st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 
     with st.container():

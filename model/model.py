@@ -6,9 +6,12 @@ from sklearn.metrics import accuracy_score, classification_report
 import pickle5 as pickle
 import os
 
+cwd = os.getcwd()
+parent_dir = os.path.abspath(os.path.join(cwd, os.pardir))
+data_path = os.path.join(parent_dir,'data','data.csv')
 
 def get_clean_data():
-    data = pd.read_csv("../Data/data.csv")
+    data = pd.read_csv(data_path)
 
     data = data.drop(["Unnamed: 32", "id"], axis=1)
 
