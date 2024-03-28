@@ -7,8 +7,7 @@ import pickle5 as pickle
 import os
 
 cwd = os.getcwd()
-parent_dir = os.path.abspath(os.path.join(cwd, os.pardir))
-data_path = os.path.join(parent_dir,'data','data.csv')
+data_path = os.path.join(cwd,'data','data.csv')
 
 def get_clean_data():
     data = pd.read_csv(data_path)

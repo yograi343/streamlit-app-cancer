@@ -6,11 +6,10 @@ import os
 import numpy as np
 
 cwd = os.getcwd()
-parent_dir = os.path.abspath(os.path.join(cwd, os.pardir))
-data_path = os.path.join(parent_dir,'data','data.csv')
-asset_path = os.path.join(parent_dir,'assets','style.css')
-model_path = os.path.join(parent_dir,'model','model.pkl')
-scaler_path = os.path.join(parent_dir,'model','scaler.pkl')
+data_path = os.path.join(cwd,'data','data.csv')
+asset_path = os.path.join(cwd,'assets','style.css')
+model_path = os.path.join(cwd,'model','model.pkl')
+scaler_path = os.path.join(cwd,'model','scaler.pkl')
 
 def get_clean_data():
     data = pd.read_csv(data_path)
