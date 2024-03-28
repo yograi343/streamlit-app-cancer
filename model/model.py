@@ -55,9 +55,9 @@ def main():
     # saving the model
     # if not os.path.exists("model"):
     #     os.makedirs("model")
-    with open("model.pkl", "wb") as f:
+    with open("model/model.pkl", "wb") as f:
         pickle.dump(model, f)
-    with open("scaler.pkl", "wb") as f:
+    with open("model/scaler.pkl", "wb") as f:
         pickle.dump(scaler, f)
 
 
