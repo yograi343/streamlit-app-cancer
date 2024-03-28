@@ -12,7 +12,7 @@ model_path = os.path.join(cwd,'model','model.pkl')
 scaler_path = os.path.join(cwd,'model','scaler.pkl')
 
 def get_clean_data():
-    data = pd.read_csv(data_path)
+    data = pd.read_csv('data/data.csv')
 
     data = data.drop(["Unnamed: 32", "id"], axis=1)
 
@@ -150,8 +150,8 @@ def get_radar(input_data):
 
 
 def add_predictions(input_data):
-    model = pickle.load(open(model_path, "rb"))
-    scaler = pickle.load(open(scaler_path, "rb"))
+    model = pickle.load(open('model/model.pkl', "rb"))
+    scaler = pickle.load(open('model/scaler.pkl', "rb"))
 
     input_array = np.array(list(input_data.values())).reshape(1, -1)
 
@@ -189,7 +189,7 @@ def main():
         layout="wide",
         initial_sidebar_state="expanded",
     )
-    with open(asset_path) as f:
+    with open('assets/style.css') as f:
         st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 
     with st.container():
