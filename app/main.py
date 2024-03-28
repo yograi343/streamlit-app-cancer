@@ -5,14 +5,9 @@ import plotly.graph_objects as go
 import os
 import numpy as np
 
-cwd = os.getcwd()
-data_path = os.path.join(cwd,'data','data.csv')
-asset_path = os.path.join(cwd,'assets','style.css')
-model_path = os.path.join(cwd,'model','model.pkl')
-scaler_path = os.path.join(cwd,'model','scaler.pkl')
 
 def get_clean_data():
-    data = pd.read_csv('data/data.csv')
+    data = pd.read_csv('Data/data.csv')
 
     data = data.drop(["Unnamed: 32", "id"], axis=1)
 
